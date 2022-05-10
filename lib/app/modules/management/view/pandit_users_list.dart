@@ -29,7 +29,7 @@ class _PanditUserListState extends State<PanditUserList> {
               (index) => DropdownMenuItem(
                   value: Purohit(snapshot.data!.docs[index]).name +
                       Purohit(snapshot.data!.docs[index]).uid +
-                      Purohit(snapshot.data!.docs[index]).mobile + Purohit(snapshot.data!.docs[index]).state,
+                      Purohit(snapshot.data!.docs[index]).mobile,
                       child:  panditUserCard(snapshot, index, context),));                                       
             return Column(
               children: [
@@ -56,7 +56,7 @@ class _PanditUserListState extends State<PanditUserList> {
                       onPressed: (){
                        
                       setState(() {
-                        limit = limit+10;
+                        limit = limit+50;
                       });
                     }, child: Text("Icrement by 10",style: TextStyle(color: Get.isDarkMode?Colors.white:Colors.black54))),                                       
                   ],
