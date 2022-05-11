@@ -10,14 +10,13 @@ void main() async{
    WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-        apiKey: "AIzaSyBZ13A_jaEZIItP8ezgFVwrFDmkBJohBbk",
-        authDomain: "swastik13-8242d.firebaseapp.com",
-        databaseURL: "https://swastik13-8242d.firebaseio.com",
-        projectId: "swastik13-8242d",
-        storageBucket: "swastik13-8242d.appspot.com",
-        messagingSenderId: "536545876267",
-        appId: "1:536545876267:web:21154dbdb599a7b9abcd6e",
-        measurementId: "G-VP4VMCWCD8"
+       apiKey: "AIzaSyCY8RH5UW_NiFbtx2gMCDKugtYo9HzDEvs",
+      authDomain: "swastik13prod.firebaseapp.com",
+      projectId: "swastik13prod",
+      storageBucket: "swastik13prod.appspot.com",
+      messagingSenderId: "795343184742",
+      appId: "1:795343184742:web:fd5babebd1eae609a1dea7",
+      measurementId: "G-DVF7PLRXGN"
     )
   );
 
