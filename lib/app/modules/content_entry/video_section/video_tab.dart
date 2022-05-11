@@ -82,7 +82,7 @@ class VideoTab extends StatelessWidget {
                           snapshot.data!.docs.forEach((element) {
                             _videoCards.add(EventCards(
                               remove: tab=='rp'?true:false,
-                              text: element["live"]==false?element['puja_name']:"${element['puja_name']}(live)",
+                              text: element["live"]==false?"${element['puja_name']} ${element.id}":"${element['puja_name']} ${element.id} (live)",
                               deleteOntap: (){
                                 print("delete called");
                                 FirebaseFirestore.instance.doc('PujaPurohitFiles/all_videos/videos/${element.id}').delete();
