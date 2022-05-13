@@ -15,6 +15,7 @@ import 'app/modules/content_entry/video_section/video_tab.dart';
 import 'app/modules/home/view/home_view.dart';
 import 'app/modules/management/view/client_users_list.dart';
 import 'app/modules/management/view/pandit_users_list.dart';
+import 'app/modules/sales/sales_view.dart';
 import 'resources/app_themes.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,7 +70,8 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/video/:tab', page:()=>VideoTab()),
             GetPage(name: '/upcoming/:tab', page: ()=>UpcomingTab(),),
             GetPage(name: '/detail', page:()=>AddUpdateDetailView()),
-            GetPage(name: '/add-puja-vidhi', page: ()=>AddPujaVidhi())                    
+            GetPage(name: '/add-puja-vidhi', page: ()=>AddPujaVidhi())  ,
+            GetPage(name: '/booking-detail/:id', page: ()=>BookingDetail())                    
           ]
           )
       ],
