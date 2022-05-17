@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:intl/intl.dart';
 import 'package:management/app/modules/content_entry/samagri_section/view/samagri_add_delete.dart';
 import 'package:management/app/modules/management/view/pandit_user_details.dart';
+import 'package:management/app/modules/sales/history_bookings/edit_button.dart';
 import 'package:management/resources/app_config.dart';
 import 'package:management/resources/app_strings.dart';
 import 'package:system_theme/system_theme.dart';
@@ -15,6 +17,9 @@ import 'app/modules/content_entry/video_section/video_tab.dart';
 import 'app/modules/home/view/home_view.dart';
 import 'app/modules/management/view/client_users_list.dart';
 import 'app/modules/management/view/pandit_users_list.dart';
+import 'app/modules/sales/Booking_view.dart';
+import 'app/modules/sales/history_bookings/detail_view.dart';
+import 'app/modules/sales/history_bookings/history_view.dart';
 import 'app/modules/sales/sales_view.dart';
 import 'resources/app_themes.dart';
 void main() async{
@@ -52,7 +57,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) =>
     GetMaterialApp(     
       debugShowCheckedModeBanner: false,
-      theme: Themes.light,
+     // textDirection: TextDirection.LTR,
+      theme: Themes.dark,
       darkTheme: Themes.dark,
       initialRoute: '/home/${AppStrings.CONTENT_ENTRY}',
       getPages: [
@@ -70,8 +76,12 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/video/:tab', page:()=>VideoTab()),
             GetPage(name: '/upcoming/:tab', page: ()=>UpcomingTab(),),
             GetPage(name: '/detail', page:()=>AddUpdateDetailView()),
-            GetPage(name: '/add-puja-vidhi', page: ()=>AddPujaVidhi())  ,
-            GetPage(name: '/booking-detail/:id', page: ()=>BookingDetail())                    
+            GetPage(name: '/add-puja-vidhi', page: ()=>AddPujaVidhi()),
+            GetPage(name:'/booking-view/:tab' , page: ()=> BookingSection()) ,                 
+
+             GetPage(name: '/history_booking', page: ()=>HistoryBookings()),
+            GetPage(name: '/booking-detail/:id', page: ()=>BookingDetails()),
+            
           ]
           )
       ],

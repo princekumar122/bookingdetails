@@ -5,7 +5,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:management/resources/app_strings.dart';
 import 'package:management/resources/responshive.dart';
 
-import '../../../purohit_profile_mgmt/all_prohit_profiles.dart';
+
 import '../../management/view/user_management_view.dart';
 import '../../sales/sales_view.dart';
 class HomeView extends StatelessWidget{
@@ -31,9 +31,10 @@ class HomeView extends StatelessWidget{
                        leftTile(context,AppStrings.CONTENT_ENTRY,'Content Entry',LineIcons.user),                        
                         const SizedBox(height: 5,),                      
                         leftTile(context,AppStrings.MANAGEMENT,'Users Management',Icons.admin_panel_settings),
-                         const Divider(thickness: 2,height: 2,),
-                         const SizedBox(height: 5,),                      
+                          const SizedBox(height: 5,),                     
                         leftTile(context,AppStrings.SALES,'Sales',Icons.online_prediction_sharp),
+                         const Divider(thickness: 2,height: 2,),
+                        
                       ],
                     ),
                   ),

@@ -1,44 +1,32 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:management/app/modules/sales/Booking_view.dart';
 
-import '../../../resources/app_strings.dart';
+import 'package:management/resources/app_components/function_cards.dart';
 
-class SalesView extends StatelessWidget{
+import 'history_bookings/history_view.dart';
+
+class SalesView extends StatelessWidget {
+  SalesView({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-    body: StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection("assets_folder/puja_bookings_folder/puja_bookings").snapshots(),
-      builder: (context, snapshot) {        
-        if(snapshot.data==null){
-          return Center(child: Text("data"),);
-        }
-        return ListView.builder(
-          shrinkWrap: true,
-          itemCount: snapshot.data!.size,
-          itemBuilder: (contex,index){
-          return ListTile(
-            onTap: (){
-              Get.toNamed('/home/${AppStrings.SALES}/booking-detail/${snapshot.data!.docs[index]["booking_id"]}');
+    return Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: FunctionCards(
+            iconData: Icons.library_books,
+            text: "Bookings",
+            ontap: () {
+              Get.to(BookingSection());
             },
-            title: Text("${snapshot.data!.docs[index]['puja_ceremony_name']}"),
-          );
-        });
-      }
-    )
-  );
-  }
-
-}
-
-
-class BookingDetail extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    String id = Get.parameters['id']!;
-    return  Scaffold(
-      body: Text(id),
-    );
+          ),
+        ));
   }
 }
+
+
+
