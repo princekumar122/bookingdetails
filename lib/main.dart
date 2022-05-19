@@ -22,7 +22,8 @@ import 'app/modules/sales/history_bookings/detail_view.dart';
 import 'app/modules/sales/history_bookings/history_view.dart';
 import 'app/modules/sales/sales_view.dart';
 import 'resources/app_themes.dart';
-void main() async{
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
@@ -33,58 +34,70 @@ void main() async{
           storageBucket: "swastik13-8242d.appspot.com",
           messagingSenderId: "536545876267",
           appId: "1:536545876267:web:21154dbdb599a7b9abcd6e",
-          measurementId: "G-VP4VMCWCD8"
-      )
-  );
+          measurementId: "G-VP4VMCWCD8"));
   if (kIsWeb ||
       [TargetPlatform.windows, TargetPlatform.android]
           .contains(defaultTargetPlatform)) {
     SystemTheme.accentInstance;
   }
 
-
   var configuredApp = AppConfig(
     appTitle: "Flutter Flavors Dev",
     buildFlavor: "Development",
-    child:  MyApp(),
+    child: MyApp(),
   );
   return runApp(configuredApp);
 }
+
 class MyApp extends StatelessWidget {
- const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-    GetMaterialApp(     
-      debugShowCheckedModeBanner: false,
-     // textDirection: TextDirection.LTR,
-      theme: Themes.dark,
-      darkTheme: Themes.dark,
-      initialRoute: '/home/${AppStrings.CONTENT_ENTRY}',
-      getPages: [
-          GetPage(name: '/home/:tab', page: ()=>HomeView(),
-          children: [
-           GetPage(name: '/client_users', page: ()=>ClientUserList(),           
-           ),
-           GetPage(name: '/pandit_users', page: ()=>PanditUserList(),
-           children: [
-             GetPage(name: '/:id', page: ()=>PanditUserDetails(),)
-           ]
-           ),
-            GetPage(name: '/update_puja/:tab', page: ()=>AddUpdatePuja(),),
-           GetPage(name: '/samagri', page:()=>SamagriAddDelete()),
-            GetPage(name: '/video/:tab', page:()=>VideoTab()),
-            GetPage(name: '/upcoming/:tab', page: ()=>UpcomingTab(),),
-            GetPage(name: '/detail', page:()=>AddUpdateDetailView()),
-            GetPage(name: '/add-puja-vidhi', page: ()=>AddPujaVidhi()),
-            GetPage(name:'/booking-view/:tab' , page: ()=> BookingSection()) ,                 
-
-             GetPage(name: '/history_booking', page: ()=>HistoryBookings()),
-            GetPage(name: '/booking-detail/:id', page: ()=>BookingDetails()),
-            
-          ]
-          )
-      ],
-    );
+  Widget build(BuildContext context) => GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          // textDirection: TextDirection.LTR,
+          theme: Themes.dark,
+          darkTheme: Themes.dark,
+          initialRoute: '/home/${AppStrings.CONTENT_ENTRY}',
+          getPages: [
+            GetPage(name: '/home/:tab', page: () => HomeView(), children: [
+              GetPage(
+                name: '/client_users',
+                page: () => ClientUserList(),
+              ),
+              GetPage(
+                  name: '/pandit_users',
+                  page: () => PanditUserList(),
+                  children: [
+                    GetPage(
+                      name: '/:id',
+                      page: () => PanditUserDetails(),
+                    )
+                  ]),
+              GetPage(
+                name: '/update_puja/:tab',
+                page: () => AddUpdatePuja(),
+              ),
+              GetPage(name: '/samagri', page: () => SamagriAddDelete()),
+              GetPage(name: '/video/:tab', page: () => VideoTab()),
+              GetPage(
+                name: '/upcoming/:tab',
+                page: () => UpcomingTab(),
+              ),
+              GetPage(name: '/detail', page: () => AddUpdateDetailView()),
+              GetPage(name: '/add-puja-vidhi', page: () => AddPujaVidhi()),
+              GetPage(
+                name: '/booking-view/:tab',
+                page: () => BookingSection(),
+                children: [
+                  GetPage(
+                      name: '/',
+                      page: () => HistoryBookings(),
+                      children: [
+                        GetPage(name: '/booking-detail/:booking_id', page: () => BookingDetails()),
+                      ])
+                ],
+              )
+            ])
+          ]);
 }
-

@@ -93,7 +93,7 @@ Card bookingCard(AsyncSnapshot<QuerySnapshot<Object?>> snapshot, int index,
       
             print("${snapshot.data!.docs[index]['booking_id']}");
             Get.toNamed(
-                   '/home/${AppStrings.SALES}/booking-view/${AppStrings.HISTORY_BOOKING}/booking-detail/${snapshot.data!.docs[index]['booking_id']}');
+                           '/home/${AppStrings.SALES}/booking-view/${AppStrings.HISTORY_BOOKING}/booking-detail/${snapshot.data!.docs[index]['booking_id']}');
           },
           contentPadding: EdgeInsets.all(3),
           leading: CircleAvatar(

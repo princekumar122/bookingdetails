@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget{
                 flex: 1,
                 child: Container(
                   child: Padding(
-                    padding: EdgeInsets.only(top: Get.height*0.11),
+                    padding: EdgeInsets.only(top: Get.height*0.11,),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
