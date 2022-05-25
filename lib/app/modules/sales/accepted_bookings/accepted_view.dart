@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Accepted extends StatefulWidget {
-  Accepted({Key? key}) : super(key: key);
+  const Accepted({Key? key}) : super(key: key);
 
   @override
   State<Accepted> createState() => _AcceptedState();
@@ -20,12 +20,12 @@ class _AcceptedState extends State<Accepted> {
               .snapshots(),
           builder: ((context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
             if (snapshot.hasData) {
               return hello(snapshot);
             } else {
-              return Text("booking_id");
+              return const Text("booking_id");
             }
           })),
     );
